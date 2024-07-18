@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+    </style>
+</head>
+
+<body>
+    <button onclick="oneBtn('all')">ALL</button>
+    <button onclick="oneBtn('iqoo')">IQOO</button>
+    <button onclick="oneBtn('samsung')">SAMSUNG</button>
+    <button onclick="oneBtn('iphone')">IPHONE</button>
+    <ul>
+        <li class="iphone">i phone 15</li>
+        <li class="iqoo">iqoo neo 9pro</li>
+        <li class="samsung">s23 ultra</li>
+        <li class="iqoo">iqoo 12</li>
+        <li class="iphone">i pad</li>
+        <li class="samsung">s24</li>
+        <li class="iqoo">iqoo z9</li>
+        <li class="samsung">samsung z fold</li>
+        <li class="iphone">i phone 14pro</li>
+    </ul>
+    <script>
+        function allCat() {
+            let all = document.getElementsByTagName("li")
+
+            for (let v = 0; v < all.length; v++) {
+                document.getElementsByTagName("li")[v].style.display = "none"
+            }
+        }
+
+        function oneBtn(catagory) {
+            allCat()
+            if (catagory == "all") {
+                let all = document.getElementsByTagName("li")
+
+                for (let v = 0; v < all.length; v++) {
+                    document.getElementsByTagName("li")[v].style.display = "block"
+                }
+
+            }
+            else {
+                let other = document.getElementsByClassName(catagory)
+                for (let i = 0; i < other.length; i++) {
+                    document.getElementsByClassName(catagory)[i].style.display = "block"
+                }
+            }
+        }
+
+    </script>
+</body>
+</html>

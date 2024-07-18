@@ -1,0 +1,12 @@
+{
+    "files.associations": {
+        "PRNTPAL.C": "cpp",
+        "PRIME.C": "cpp",
+        "PRNTPTRN.C": "cpp",
+        "PATTERN.C": "cpp",
+        "PATTERN2.C": "cpp",
+        "CHARPATT.C": "cpp",
+        "F20-1.C": "cpp"
+    },
+    "liveServer.settings.port": 5501
+}

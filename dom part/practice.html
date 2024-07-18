@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+        .dd{
+        
+            position: relative;
+        }
+        .dd button{
+            width: 200px; 
+            margin: 0;
+            
+        }
+        .dd .dropbox{
+            width:200px;
+            position: absolute;
+            text-align: center;
+            margin: 0;
+            top: -200px;
+            z-index: -1;
+        }
+
+        
+    </style>
+</head>
+<body>
+   
+        <div class="dd">
+            <button onclick="change()">open</button>
+            <div class="dropbox">
+                <p>hello</p>
+                <p>hello</p>
+                <p>hello</p>
+                <p>hello</p>
+                <p>hello</p>
+            </div>
+            
+        </div>
+
+        <script>
+            function change(){
+                let j=document.getElementsByClassName("dd")[0].getElementsByClassName("dropbox")[0]
+                j.style.backgroundColor="red"
+                if(j.style.top == "21px")
+                {
+                   j.style.top ="-200px"
+                   j.style.transition = "200ms"
+                }
+                else{
+                   j.style.top="21px"
+                   j.style.transition = "500ms"
+                }
+            }
+        </script>
+        
+</body>
+</html>
