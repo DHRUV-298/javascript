@@ -50,7 +50,7 @@
             <button onclick="calculator(9)">9</button>
             <button onclick="calculator(8)">8</button>
             <button onclick="calculator(7)">7</button>
-            <button onclick="calculator('+')">+</button>
+            <button onclick="sum('+')">+</button>
 
             <button onclick="calculator(6)">6</button>
             <button onclick="calculator(5)">5</button>
@@ -65,26 +65,35 @@
             <button onclick="sum('=')">=</button>
             <button onclick="calculator(0)">0</button>
             <button onclick="calculator('/')">/</button>
-            <button onclick="calculator('%')">%</button>   
+            <button onclick="calculator('%')">%</button>
         </div>
     </div>
     <script>
         let store = []
-        let values = []
-        let valuee = []
+        let store1 = []
+        let store2 = []
         function calculator(i) {
-            // store.push(document.getElementsByClassName("cal")[0].value += i)
-            document.getElementsByClassName("cal")[0].value += i
+            store.push(document.getElementsByClassName("cal")[0].value += i)
+            console.log(store);
+            store1 = [...store]
         }
 
         function sum(i) {
-            // let last = store[store.length - 1];
+            let last = store1[store.length - 1];
             // values.push(last)
-            // valuee=document.getElementsByClassName("cal")[0].value.split("+")
-            console.log(valuee);
+            store1 = document.getElementsByClassName("cal")[0].value.split("+")
+            document.getElementsByClassName("cal")[0].value = ""
+            console.log(store1);
+            let t=store1.find(a=>{
+                return a.length
+            })
+            store2.push(t)
+            console.log(store2);
+            if(i=='+')
+            {
+               
+            }
         }
-        // values=values.concat(sign)
-        // console.log(values);
     </script>
 </body>
 
