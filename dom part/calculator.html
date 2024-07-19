@@ -71,18 +71,20 @@
     <script>
         let store = []
         let values = []
-        let sign=['+','-','/','*','%']
+        let valuee = []
         function calculator(i) {
-            store.push(document.getElementsByClassName("cal")[0].value += i)
-            
+            // store.push(document.getElementsByClassName("cal")[0].value += i)
+            document.getElementsByClassName("cal")[0].value += i
         }
 
         function sum(i) {
-            let last = store[store.length - 1];
-            values.push(last)
+            // let last = store[store.length - 1];
+            // values.push(last)
+            // valuee=document.getElementsByClassName("cal")[0].value.split("+")
+            console.log(valuee);
         }
-        values=values.concat(sign)
-        console.log(values);
+        // values=values.concat(sign)
+        // console.log(values);
     </script>
 </body>
 
