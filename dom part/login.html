@@ -8,6 +8,7 @@
     <style>
         input {
             width: 200px;
+            margin: 0 0 10px 0;
         }
     </style>
 </head>
@@ -15,33 +16,50 @@
 <body>
     <input type="text" placeholder="Enter email or phone number" class="num" id="otp">
     <button onclick="num()" class="change">Get otp</button>
+    <div class="otp-sec">
+
+    </div>
     <p class="msg"></p>
     <script>
         function num() {
+            let cotp
             data = document.getElementsByClassName("num")[0].value
             let start = "******"
             let end = data % 10000
             let sec = start + end
             if (data.trim()) {
-                    //  alert("Otp sent on " + sec)
-              document.getElementsByClassName("msg")[0].innerHTML="Otp sent on  "+sec
-              let counter=5
-              let setCounter=setInterval(()=>{
-                document.getElementsByClassName("change")[0].innerHTML = `${counter}`+"s"
-               counter--
-               if(counter==-1)
-               {
-                clearInterval(setCounter)
-                document.getElementsByClassName("change")[0].innerHTML = "Resend Otp"
-               }
-              },1000)
-              document.getElementsByClassName("num")[0].value=""
-              document.getElementById("otp").setAttribute("placeholder","Enter Otp")
-            } 
-            otp=Math.round(Math.random()*9000+1000)
-            console.log(otp);
-            let ot=document.getElementById("otp").value
+                //  alert("Otp sent on " + sec)
+                document.getElementsByClassName("msg")[0].innerHTML = "Otp sent on  " + sec
+                document.getElementsByClassName("num")[0].setAttribute("disabled", "true")
+                let counter = 10
+                let setCounter = setInterval(() => {
+                    document.getElementsByClassName("change")[0].innerHTML = `${counter}` + "s"
+                    counter--
+                    if (counter == -1) {
+                        clearInterval(setCounter)
+                        document.getElementsByClassName("change")[0].innerHTML = "Resend Otp"
+                    }
+                }, 1000)
+                //document.getElementsByClassName("num")[0].value=""
+                document.getElementById("otp").setAttribute("placeholder", "Enter Otp")
+                document.getElementsByClassName("otp-sec")[0].innerHTML += `
+                <input type="text" placeholder="Enter otp" class="num" id="otp">
+                <button onclick="confirmation()" id="cotp">Confirm</button>
+              `
+            }        
+            
         }
+         
+        function confirmation() {
+                let Cotp = document.getElementById("cotp").value
+                console.log(otp);
+                if (otp = Cotp) {
+                    console.log("yes");
+                }
+                else {
+                    console.log("no");
+                }
+            }
     </script>
 </body>
 
