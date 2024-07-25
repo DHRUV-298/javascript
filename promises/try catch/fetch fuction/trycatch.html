@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const data=async()=>{
+            try{
+                console.log("1");
+                let adata=await fetch("https://service.apikeeda.com/api/v1/employee")
+                .then((res) => res.json())
+                .then((res)=>{
+                    console.log(res.status);
+                })
+            }catch(eror){
+                console.log("error",eror);
+            }
+            console.log("3");
+        }
+    </script>
+</body>
+</html>
