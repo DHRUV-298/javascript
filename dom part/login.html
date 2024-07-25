@@ -14,12 +14,14 @@
 </head>
 
 <body>
-    <input type="text" placeholder="Enter email or phone number" class="num" id="otp">
-    <button onclick="num()" class="change">Get otp</button>
-    <div class="otp-sec">
-
+    <div id="main">
+        <input type="text" placeholder="Enter email or phone number" class="num" id="otp">
+        <button onclick="num()" class="change">Get otp</button>
+        <div class="otp-sec">
+        </div>
+        <p class="msg"></p>
     </div>
-    <p class="msg"></p>
+    <h1 class="page"></h1>
     <script>
         function num() {
             let cotp
@@ -31,7 +33,7 @@
                 //  alert("Otp sent on " + sec)
                 document.getElementsByClassName("msg")[0].innerHTML = "Otp sent on  " + sec
                 document.getElementsByClassName("num")[0].setAttribute("disabled", "true")
-                let counter = 10
+                let counter = 60
                 let setCounter = setInterval(() => {
                     document.getElementsByClassName("change")[0].innerHTML = `${counter}` + "s"
                     counter--
@@ -43,23 +45,25 @@
                 //document.getElementsByClassName("num")[0].value=""
                 document.getElementById("otp").setAttribute("placeholder", "Enter Otp")
                 document.getElementsByClassName("otp-sec")[0].innerHTML += `
-                <input type="text" placeholder="Enter otp" class="num" id="otp">
+                <input type="text" placeholder="Enter otp" class="num" id="otp1">
                 <button onclick="confirmation()" id="cotp">Confirm</button>
               `
-            }        
-            
-        }
-         
-        function confirmation() {
-                let Cotp = document.getElementById("cotp").value
-                console.log(otp);
-                if (otp = Cotp) {
-                    console.log("yes");
-                }
-                else {
-                    console.log("no");
-                }
             }
+            otp = Math.round(Math.random() * 90000 + 10000)
+            console.log(otp);
+        }
+
+        function confirmation() {
+            let Cotp = document.getElementById("otp1").value
+            if (otp == Cotp) {
+                confirm("welcome")
+                document.getElementById("main").style.display = "none"
+                document.getElementsByClassName("page")[0].innerHTML = "welcome !!!"
+            }
+            else {
+                alert("Wrong otp")
+            }
+        }
     </script>
 </body>
 
