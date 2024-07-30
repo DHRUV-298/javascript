@@ -6,6 +6,10 @@
     <title>Document</title>
     <style>
 
+        *{
+            margin: 0;
+        }
+
         .dd{
         
             position: relative;
@@ -13,6 +17,7 @@
         .dd button{
             width: 200px; 
             margin: 0;
+            padding: 5px 0;
             
         }
         .dd .dropbox{
@@ -24,6 +29,12 @@
             z-index: -1;
         }
 
+        .dropbox a{
+            display: block;
+            padding: 5px 0;
+            border: 1px solid black;
+        }
+
         
     </style>
 </head>
@@ -32,11 +43,11 @@
         <div class="dd">
             <button onclick="change()">open</button>
             <div class="dropbox">
-                <p>hello</p>
-                <p>hello</p>
-                <p>hello</p>
-                <p>hello</p>
-                <p>hello</p>
+                <a>hello</a>
+                <a>hello</a>
+                <a>hello</a>
+                <a>hello</a>
+                <a>hello</a>
             </div>
             
         </div>
@@ -44,14 +55,15 @@
         <script>
             function change(){
                 let j=document.getElementsByClassName("dd")[0].getElementsByClassName("dropbox")[0]
-                j.style.backgroundColor="red"
-                if(j.style.top == "21px")
+                if(j.style.top == "29px")
                 {
+                    document.getElementsByTagName("button")[0].innerHTML="open"
                    j.style.top ="-200px"
                    j.style.transition = "200ms"
                 }
                 else{
-                   j.style.top="21px"
+                    document.getElementsByTagName("button")[0].innerHTML="close"
+                   j.style.top="29px"
                    j.style.transition = "500ms"
                 }
             }

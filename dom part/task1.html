@@ -9,22 +9,31 @@
 
 <body>
     <script>
-        let arr = [11, 22, 11, 50, 20, 30, 41, 5, 1, 2, 3, 5]
+        let arr = [11, 11,22, 11, 50, 20, 30, 41, 5, 1, 2, 3, 5]
         let neww = []
+
+        console.log(arr);
+        console.log("<==========>");
         function div() {
             return arr.filter(r => r % 5 == 0)
         }
-        console.log(div());
+        console.log("div by 5",div());
 
         function bet() {
             return arr.filter(t => t >= 10 && t <= 50)
         }
-        console.log(bet());
+        console.log("between 10 & 50",bet());
 
+        arr.sort()
         function uniq() {
-          
+            for (let i = 0; i < arr.length; i++)  {
+                    if (arr[i] != arr[i+1]) {
+                        neww.push(arr[i])
+                    } 
+            }
+            return neww
         }
-        console.log(uniq());
+        console.log("unique numbers",uniq());
     </script>
 </body>
 
