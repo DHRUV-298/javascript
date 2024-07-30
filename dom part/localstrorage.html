@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text" id="name">
+    <button onclick="store()">enter</button>
+    <ul class="data">
+    </ul>
+    <script>
+
+        store1 = [];
+
+        (function () {
+            let locData = localStorage.getItem("data")
+            let parseData = JSON.parse(locData)
+
+            if (parseData != null) {
+                parseData.forEach(element => {
+                    document.getElementsByClassName("data")[0].innerHTML += `<li>${element}</li>`
+                });
+                store1 = parseData
+            }
+        })()
+        function store() {
+            let name = document.getElementById("name").value
+
+            if (name.trim()) {
+                document.getElementsByClassName("data")[0].innerHTML += "<li>" + name + "</li>"
+                store1.push(name)
+                localStorage.setItem("data", JSON.stringify(store1))
+            }
+            document.getElementById("name").value = ""
+        }
+    </script>
+</body>
+
+</html>
