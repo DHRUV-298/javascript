@@ -24,7 +24,6 @@
     <h1 class="page"></h1>
     <script>
         function num() {
-            let cotp
             data = document.getElementsByClassName("num")[0].value
             let start = "******"
             let end = data % 10000
@@ -41,6 +40,7 @@
                         clearInterval(setCounter)
                         document.getElementsByClassName("change")[0].innerHTML = "Resend Otp"
                     }
+
                 }, 1000)
                 //document.getElementsByClassName("num")[0].value=""
                 document.getElementById("otp").setAttribute("placeholder", "Enter Otp")
@@ -48,9 +48,10 @@
                 <input type="text" placeholder="Enter otp" class="num" id="otp1">
                 <button onclick="confirmation()" id="cotp">Confirm</button>
               `
-            }
-            otp = Math.round(Math.random() * 90000 + 10000)
+              otp = Math.round(Math.random() * 90000 + 10000)
             console.log(otp);
+            }
+            
         }
 
         function confirmation() {

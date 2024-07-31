@@ -6,35 +6,57 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
+        *{
+            margin: 0;
+        }
         .main {
-            display: flex;
-            flex-direction: column;
-            width: 30%;
+            display: block;
+            width: 400px;
+            position: relative;
         }
 
-        .box {
+        .box{
+            width: 100%;
             padding: 10px 0;
         }
 
-        .box p{
-            display: none;
+        .main p{
+            width: 100%;
             border: 1px black;
+            top: 40PX;
+            text-align: start;
+            color: aliceblue;
+            z-index: -1;
+            position: absolute;
+            top: 0;
         }
     </style>
 </head>
 
 <body>
     <div class="main">
-        <button class="box" onclick="change()">one <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Praesentium sit mollitia at ratione autem accusantium impedit quas! Modi nihil voluptatem nostrum, atque
-                praesentium repellat, delectus dolorem vel quis obcaecati accusantium?</p></button>
-        <button class="box" onclick="change()">two</button>
-        <button class="box" onclick="change()">three</button>
+        <button class="box" onclick="change()">one</button>
+        <p>Lorem ipsum asdg dolor sit amet consectetur adipisicing elit.
+            Praesentium sit mollitia at ratione autem accusantium impedit</p>
     </div>
     <script>
         function change() {
-            document.getElementsByClassName("box").ge
+            let q = document.getElementsByTagName("p")[0]
+            let c=document.getElementsByClassName("box")[0]
+            if (q.style.top == "40px") {
+                q.style.top = "0px"
+                q.style.transition = "100ms"
+                c.style.backgroundColor="white"
+                c.style.color="black"
             }
+            else {
+                q.style.top = "40px"
+                q.style.transition = "500ms"
+                q.style.backgroundColor="black"
+                c.style.backgroundColor="black"
+                c.style.color="white"
+            }
+        }
     </script>
 </body>
 

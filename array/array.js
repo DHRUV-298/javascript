@@ -26,7 +26,15 @@ let data=[
     {name:"Syam",Ecode:2378,work:"sales man",time:"afternoon"},
     {name:"Sham",Ecode:2378,work:"sales man",time:"afternoon"},
     {name:"Shya",Ecode:2378,work:"sales man",time:"afternoon"},
-    {name:"Darshan",Ecode:2009,work:"sales man",time:"morning"},
+    {name:"aadesh",Ecode:2009,work:"sales man",time:"morning"},
+    {name:"aadesh",Ecode:2009,work:"sales man",time:"morning"},
+    {name:"aadesh",Ecode:2009,work:"sales man",time:"morning"},
+    {name:"aadesh",Ecode:2009,work:"sales man",time:"morning"},
+    {name:"aadesh",Ecode:2009,work:"sales man",time:"morning"},
+    {name:"aadesh",Ecode:2009,work:"sales man",time:"morning"},
+    {name:"aadesh",Ecode:2009,work:"sales man",time:"morning"},
+    {name:"aadesh",Ecode:2009,work:"sales man",time:"morning"},
+    {name:"aadesh",Ecode:2009,work:"sales man",time:"morning"}
 ]
 
 console.log("=====>employee data<====");
