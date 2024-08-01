@@ -62,7 +62,7 @@
             <button onclick="calculator(1)">1</button>
             <button onclick="calculator('*')">*</button>
 
-            <button onclick="sum('=')">=</button>
+            <button onclick="to('=')">=</button>
             <button onclick="calculator(0)">0</button>
             <button onclick="calculator('/')">/</button>
             <button onclick="calculator('%')">%</button>
@@ -72,6 +72,7 @@
         let store = []
         let store1 = []
         let store2 = []
+        let f=[]
         function calculator(i) {
             store.push(document.getElementsByClassName("cal")[0].value += i)
             console.log(store);
@@ -79,19 +80,28 @@
         }
 
         function sum(i) {
-            let last = store1[store.length - 1];
-            // values.push(last)
-            store1 = document.getElementsByClassName("cal")[0].value.split("+")
-            document.getElementsByClassName("cal")[0].value = ""
-            console.log(store1);
-            let t=store1.find(a=>{
-                return a.length
-            })
-            store2.push(t)
-            console.log(store2);
+
+            if (i == '+') {
+                let last = store1[store.length - 1];
+                // values.push(last)
+                store1 = document.getElementsByClassName("cal")[0].value.split("+")
+                document.getElementsByClassName("cal")[0].value = ""
+                console.log(store1);
+                let t = store1.find(a => {
+                    return a.length
+                })
+                store2.push(t)
+                let sum = store2.reduce((a, b) => {
+                    return parseInt(a) + parseInt(b)
+                })
+                console.log(sum);
+                
+            }
         }
 
-        function sum(){
+        function to()
+        {
+            document.getElementsByClassName("cal")[0].value=sum
         }
     </script>
 </body>
