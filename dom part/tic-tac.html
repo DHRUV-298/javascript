@@ -73,8 +73,8 @@
 
                 for (let v = 0; v <= 8; v++) {
                     document.getElementsByClassName("tiles")[v].removeAttribute("disabled")
-                    document.getElementsByClassName("tiles")[v].innerHTML = ""
                 }
+                document.getElementsByClassName("tiles")[v].innerHTML = ""
             }
             if (values[0] == "o" && values[1] == "o" && values[2] == "o" || values[3] == "o" && values[4] == "o" && values[5] == "o" || values[6] == "o" && values[7] == "o" && values[8] == "o" || values[0] == "o" && values[3] == "o" && values[6] == "o" || values[1] == "o" && values[4] == "o" && values[7] == "o" || values[2] == "o" && values[5] == "o" && values[8] == "o" || values[0] == "o" && values[4] == "o" && values[8] == "o" || values[2] == "o" && values[4] == "o" && values[6] == "o") {
                 alert("o win")

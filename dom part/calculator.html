@@ -72,36 +72,33 @@
         let store = []
         let store1 = []
         let store2 = []
-        let f=[]
         function calculator(i) {
             store.push(document.getElementsByClassName("cal")[0].value += i)
-            console.log(store);
             store1 = [...store]
         }
 
-        function sum(i) {
+        function sum() {
 
             if (i == '+') {
                 let last = store1[store.length - 1];
                 // values.push(last)
                 store1 = document.getElementsByClassName("cal")[0].value.split("+")
                 document.getElementsByClassName("cal")[0].value = ""
-                console.log(store1);
                 let t = store1.find(a => {
                     return a.length
                 })
                 store2.push(t)
-                let sum = store2.reduce((a, b) => {
+                let sum1 = store2.reduce((a, b) => {
                     return parseInt(a) + parseInt(b)
                 })
                 console.log(sum);
-                
             }
         }
 
         function to()
         {
-            document.getElementsByClassName("cal")[0].value=sum
+            let ans=sum()
+            document.getElementsByClassName("cal")[0].value=ans
         }
     </script>
 </body>
@@ -202,27 +199,31 @@
             mainBox.getElementsByTagName("input")[0].value += brt;
         }
 
-
-
-
-
         function numAnswer(){
             let data = []
             if(document.getElementById("ans").value.includes("+")){
                 data = document.getElementById("ans").value.split("+");
-                return parseInt(data[0]) + parseInt(data[1])
+                return data.reduce((a,b)=>{
+                    return parseInt(a)+parseInt(b)
+                })
             }
             else if(document.getElementById("ans").value.includes("-")){
                 data = document.getElementById("ans").value.split("-");
-                return parseInt(data[0]) - parseInt(data[1])
+                return data.reduce((a,b)=>{
+                    return parseInt(a)-parseInt(b)
+                })
             }
             else if(document.getElementById("ans").value.includes("*")){
                 data = document.getElementById("ans").value.split("*");
-                return parseInt(data[0]) * parseInt(data[1])
+                return data.reduce((a,b)=>{
+                    return parseInt(a)*parseInt(b)
+                })
             }
             else if(document.getElementById("ans").value.includes("/")){
                 data = document.getElementById("ans").value.split("/");
-                return parseInt(data[0]) / parseInt(data[1])
+                return data.reduce((a,b)=>{
+                    return parseInt(a)/parseInt(b)
+                })
             }
             else if(document.getElementById("ans").value.includes("%")){
                 data = document.getElementById("ans").value.split("%");
