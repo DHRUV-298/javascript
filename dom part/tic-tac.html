@@ -6,16 +6,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        body {
-
-            display: flex;
-            justify-content: start;
-            align-items: center;
-            background-color: rgb(70, 69, 69);
-            height: 100vh;
+        * {
+            list-style: none;
+            margin: 0;
         }
 
 
+        .tic {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: rgb(70, 69, 69);
+            height: 800px;
+        }
 
         .main-tile {
             display: flex;
@@ -33,35 +36,64 @@
             border-radius: 15px;
         }
 
-        .reset {
-            margin-top: 20px;
-            padding: 15px 0;
-            width: 600px;
-            background-color: black;
-            color: white;
-            border-radius: 15px;
+        .result {
+            width: 50%;
+        }
+
+        .result h1{
+            font-size: 70px;
+            text-align: center;
+            font-variant:small-caps;
+            margin: 0 0 50px 0;
+        }
+
+        .result h1{
+            font-size: 48px;
+            text-align: center;
+            font-variant:small-caps;
+            margin: 20px 0 50px 0;
+        }
+
+        .counter li {
+            font-size: 28px;
+            padding: 10px;
         }
     </style>
 </head>
 
 <body>
-    <div class="main-tile">
-        <button class="tiles" onclick="action(0)"></button>
-        <button class="tiles" onclick="action(1)"></button>
-        <button class="tiles" onclick="action(2)"></button>
-        <button class="tiles" onclick="action(3)"></button>
-        <button class="tiles" onclick="action(4)"></button>
-        <button class="tiles" onclick="action(5)"></button>
-        <button class="tiles" onclick="action(6)"></button>
-        <button class="tiles" onclick="action(7)"></button>
-        <button class="tiles" onclick="action(8)"></button>
-    </div>
-    <div class="counter">
-
+    <div class="tic">
+        <div class="main-tile">
+            <button class="tiles" onclick="action(0)"></button>
+            <button class="tiles" onclick="action(1)"></button>
+            <button class="tiles" onclick="action(2)"></button>
+            <button class="tiles" onclick="action(3)"></button>
+            <button class="tiles" onclick="action(4)"></button>
+            <button class="tiles" onclick="action(5)"></button>
+            <button class="tiles" onclick="action(6)"></button>
+            <button class="tiles" onclick="action(7)"></button>
+            <button class="tiles" onclick="action(8)"></button>
+        </div>
+        <div class="result">
+            <h1>result</h1>
+            <ul class="counter">
+                <li id="x">X WINS :</li>
+                <li id="o">O WINS :</li>
+                <li id="d">DRAW &nbsp&nbsp:</li>
+            </ul>
+            <div class="recent">
+                <h1>RESENT WINS</h1>
+                <h2 id="s"></h2>
+            </div>
+        </div>
     </div>
     <script>
         let lastV = "x"
         let values = ["", "", "", "", "", "", "", "", ""]
+        let x=[]
+        let o=[]
+        let d=[]
+        let rec=[]
         function action(index) {
             lastV = lastV == "x" ? "o" : "x"
             document.getElementsByClassName("tiles")[index].innerHTML = lastV
@@ -69,20 +101,42 @@
             values[index] = lastV
             document.getElementsByClassName("tiles")[index].setAttribute("disabled", "true")
             if (values[0] == "x" && values[1] == "x" && values[2] == "x" || values[3] == "x" && values[4] == "x" && values[5] == "x" || values[6] == "x" && values[7] == "x" && values[8] == "x" || values[0] == "x" && values[3] == "x" && values[6] == "x" || values[1] == "x" && values[4] == "x" && values[7] == "x" || values[2] == "x" && values[5] == "x" && values[8] == "x" || values[0] == "x" && values[4] == "x" && values[8] == "x" || values[2] == "x" && values[4] == "x" && values[6] == "x") {
-                alert("x winner")
-
                 for (let v = 0; v <= 8; v++) {
                     document.getElementsByClassName("tiles")[v].removeAttribute("disabled")
+                    document.getElementsByClassName("tiles")[v].innerHTML = ""
+                    document.getElementsByClassName("tiles")[v].style.background = "black"
                 }
-                document.getElementsByClassName("tiles")[v].innerHTML = ""
+                alert("x winner")
+                x.push(1)
+                rec.push("X")
+                document.getElementById("x").innerHTML = "X WINS" + " : " + x.length
+                values = ["", "", "", "", "", "", "", "", ""]
             }
-            if (values[0] == "o" && values[1] == "o" && values[2] == "o" || values[3] == "o" && values[4] == "o" && values[5] == "o" || values[6] == "o" && values[7] == "o" && values[8] == "o" || values[0] == "o" && values[3] == "o" && values[6] == "o" || values[1] == "o" && values[4] == "o" && values[7] == "o" || values[2] == "o" && values[5] == "o" && values[8] == "o" || values[0] == "o" && values[4] == "o" && values[8] == "o" || values[2] == "o" && values[4] == "o" && values[6] == "o") {
+            else if (values[0] == "o" && values[1] == "o" && values[2] == "o" || values[3] == "o" && values[4] == "o" && values[5] == "o" || values[6] == "o" && values[7] == "o" && values[8] == "o" || values[0] == "o" && values[3] == "o" && values[6] == "o" || values[1] == "o" && values[4] == "o" && values[7] == "o" || values[2] == "o" && values[5] == "o" && values[8] == "o" || values[0] == "o" && values[4] == "o" && values[8] == "o" || values[2] == "o" && values[4] == "o" && values[6] == "o") {
+                for (let v = 0; v <= 8; v++) {
+                    document.getElementsByClassName("tiles")[v].removeAttribute("disabled")
+                    document.getElementsByClassName("tiles")[v].innerHTML = ""
+                    document.getElementsByClassName("tiles")[v].style.background = "black"
+                }
                 alert("o win")
-
+                values = ["", "", "", "", "", "", "", "", ""]
+                o.push(1)
+                rec.push("O")
+                document.getElementById("o").innerHTML = "O WINS" + " : " + o.length
             }
-            if ((values[0] == "o" || values[0] == "x") && (values[1] == "o" || values[1] == "x") && (values[2] == "o" || values[2] == "x") && (values[3] == "o" || values[3] == "x") && (values[4] == "o" || values[4] == "x") && (values[5] == "o" || values[5] == "x") && (values[6] == "o" || values[6] == "x") && (values[7] == "o" || values[7] == "x") && (values[8] == "o" || values[8] == "x")) {
+            else if ((values[0] == "o" || values[0] == "x") && (values[1] == "o" || values[1] == "x") && (values[2] == "o" || values[2] == "x") && (values[3] == "o" || values[3] == "x") && (values[4] == "o" || values[4] == "x") && (values[5] == "o" || values[5] == "x") && (values[6] == "o" || values[6] == "x") && (values[7] == "o" || values[7] == "x") && (values[8] == "o" || values[8] == "x")) {
+                for (let v = 0; v <= 8; v++) {
+                    document.getElementsByClassName("tiles")[v].removeAttribute("disabled")
+                    document.getElementsByClassName("tiles")[v].innerHTML = ""
+                    document.getElementsByClassName("tiles")[v].style.background = "black"
+                }
                 alert("draw")
-            }
+                values = ["", "", "", "", "", "", "", "", ""]
+                d.push(1)
+                rec.push("DRAW")
+                document.getElementById("d").innerHTML = "DRAW" + " : " + d.length
+            }       
+                document.getElementById("s").innerHTML=" "+rec+" "
         }
 
     </script>
